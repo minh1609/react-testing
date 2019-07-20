@@ -10,8 +10,8 @@ const store = createStore(
     composeEnhancers(applyMiddleware(reduxThunk))
 );
 
-export default () => {
-    return <Provider store={store}>{this.props.children}</Provider>;
+export default props => {
+    return <Provider store={store}>{props.children}</Provider>;
 };
 
 //Root component is built for reusable Provider tag, (useful for testing)

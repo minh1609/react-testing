@@ -1,7 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
+import Root from "Root";
 
 import CommentBox from "components/CommentBox";
 
@@ -9,7 +8,11 @@ let wrapped;
 
 beforeEach(() => {
     //.mount: fullDOM render
-    wrapped = mount(<CommentBox />);
+    wrapped = mount(
+        <Root>
+            <CommentBox />
+        </Root>
+    );
 });
 
 afterEach(() => {
