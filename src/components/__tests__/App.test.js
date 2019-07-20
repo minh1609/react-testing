@@ -1,18 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { shallow } from "enzyme";
 
-import App from "../App";
-import { exportAllDeclaration } from "@babel/types";
+import App from "components/App";
+import CommentBox from "components/CommentBox";
+import CommentList from "components/CommentList";
 
+let wrapped;
+
+beforeEach(() => {
+    wrapped = shallow(<App />);
+});
+
+//"it" is App component
 it("show a comment box", () => {
-    //create a fake div inside a terminal
-    const div = document.createElement("div");
+    //return length of an array of comment box
+    expect(wrapped.find(CommentBox).length).toEqual(1);
+});
 
-    ReactDOM.render(<App />, div);
-    console.log(div.innerText);
-
-    expect(div.innerHTML).toContain("CommentBox");
-
-    //clean up
-    ReactDOM.unmountComponentAtNode(div);
+it("show a comment list", () => {
+    //return length of an array of comment box
+    expect(wrapped.find(CommentList).length).toEqual(1);
 });

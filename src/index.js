@@ -3,4 +3,13 @@ import React from "react";
 
 import App from "./components/App";
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+import Root from "Root";
+
+//implement redux-dev-tool, redux thunk
+
+ReactDOM.render(
+    <Root>
+        <App />
+    </Root>,
+    document.querySelector("#root")
+);
