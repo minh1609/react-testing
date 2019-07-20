@@ -4,15 +4,17 @@ import { createStore, compose, applyMiddleware } from "redux";
 import reducers from "reducers";
 import reduxThunk from "redux-thunk";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-    reducers,
-    composeEnhancers(applyMiddleware(reduxThunk))
-);
-
 class Root extends React.Component {
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+    store = createStore(
+        reducers,
+        this.props.initialState, //for testing
+        this.composeEnhancers(applyMiddleware(reduxThunk))
+    );
+
     render() {
-        return <Provider store={store}>{this.props.children}</Provider>;
+        return <Provider store={this.store}>{this.props.children}</Provider>;
     }
 }
 
