@@ -19,22 +19,28 @@ class CommentBox extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <form onSubmit={this.handleSubmit}>
-                    <h4>Add a comment</h4>
-                    <textarea
-                        value={this.state.comment}
-                        onChange={this.handleChange}
-                    />
-                    <div>
-                        <button>Submit Comment</button>
+            <div className="ui container">
+                <form onSubmit={this.handleSubmit} className="ui form field">
+                    <label>Add a comment</label>
+                    <div className="field">
+                        <textarea
+                            value={this.state.comment}
+                            onChange={this.handleChange}
+                            rows="3"
+                        />
                     </div>
+
+                    <button className="ui teal button">Submit Comment</button>
                 </form>
 
-                <button onClick={this.props.fetchComments}>
+                <button
+                    onClick={this.props.fetchComments}
+                    className="ui blue button"
+                    style={{ marginTop: "10px" }}
+                >
                     Fetch Comments
                 </button>
-            </React.Fragment>
+            </div>
         );
     }
 }

@@ -4,12 +4,20 @@ import { connect } from "react-redux";
 class CommentList extends Component {
     renderComment = () => {
         return this.props.comments.map(comment => {
-            return <li key={comment}>{comment}</li>;
+            return (
+                <div key={comment} className="ui message">
+                    {comment}
+                </div>
+            );
         });
     };
 
     render() {
-        return <div>{this.renderComment()}</div>;
+        return (
+            <div className="ui container" style={{ marginTop: "20px" }}>
+                {this.renderComment()}
+            </div>
+        );
     }
 }
 

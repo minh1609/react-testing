@@ -18,8 +18,8 @@ beforeEach(() => {
     );
 });
 
-it("create one LI per comment (2 li for 2 test comment)", () => {
-    expect(wrapped.find("li").length).toEqual(2);
+it("create one DIV per comment (2 li for 2 test comment)", () => {
+    expect(wrapped.find("div.message").length).toEqual(2);
 });
 
 it("text is visible", () => {
