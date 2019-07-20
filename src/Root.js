@@ -10,8 +10,12 @@ const store = createStore(
     composeEnhancers(applyMiddleware(reduxThunk))
 );
 
-export default props => {
-    return <Provider store={store}>{props.children}</Provider>;
-};
+class Root extends React.Component {
+    render() {
+        return <Provider store={store}>{this.props.children}</Provider>;
+    }
+}
+
+export default Root;
 
 //Root component is built for reusable Provider tag, (useful for testing)
