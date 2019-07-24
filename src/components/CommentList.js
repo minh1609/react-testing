@@ -15,6 +15,7 @@ class CommentList extends Component {
     render() {
         return (
             <div className="ui container" style={{ marginTop: "20px" }}>
+                <h4>Comments</h4>
                 {this.renderComment()}
             </div>
         );

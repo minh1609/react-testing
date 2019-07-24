@@ -17,6 +17,20 @@ class CommentBox extends Component {
         this.setState({ comment: "" });
     };
 
+    componentDidMount() {
+        this.navigateAway();
+    }
+
+    componentDidUpdate() {
+        this.navigateAway();
+    }
+
+    navigateAway = () => {
+        if (!this.props.auth) {
+            this.props.history.push("/");
+        }
+    };
+
     render() {
         return (
             <div className="ui container">
@@ -45,7 +59,9 @@ class CommentBox extends Component {
     }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    auth: state.auth
+});
 
 const mapDispatchToProps = { saveComment, fetchComments };
 
