@@ -10,14 +10,20 @@ class App extends Component {
     renderButton = () => {
         if (this.props.auth) {
             return (
-                <button onClick={() => this.props.changeAuth(false)}>
+                <button
+                    className="ui button"
+                    onClick={() => this.props.changeAuth(false)}
+                >
                     Sign Out
                 </button>
             );
         } else {
             return (
-                <button onClick={() => this.props.changeAuth(true)}>
-                    Sign In
+                <button
+                    className="ui secondary button"
+                    onClick={() => this.props.changeAuth(true)}
+                >
+                    Click to Sign In
                 </button>
             );
         }
@@ -26,9 +32,15 @@ class App extends Component {
     renderHeader = () => {
         return (
             <React.Fragment>
-                <Link to="/">Home</Link>
-                <Link to="/post">Post</Link>
-                {this.renderButton()}
+                <div className="ui secondary menu">
+                    <Link className="item" to="/">
+                        Home
+                    </Link>
+                    <Link className="item" to="/post">
+                        Post
+                    </Link>
+                    {this.renderButton()}
+                </div>
             </React.Fragment>
         );
     };
